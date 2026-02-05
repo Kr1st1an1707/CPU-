@@ -1,0 +1,219 @@
+:root {
+    --bg-body: #f0f4f8;
+    --text-color: #333333;
+    --accent-blue: #4682b4;
+    --accent-lightblue: #87cefa;
+    --accent-green: #27ae60;
+    --accent-red: #e74c3c;
+    --table-even: #f9f9f9;
+    --form-bg: #ffffff;
+    --shadow-color: rgba(0,0,0,0.1);
+}
+
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-body: #121212;
+        --text-color: #f0f0f0;
+        --accent-blue: #1e3a5f;
+        --accent-lightblue: #3b6ea5;
+        --accent-green: #1f7a4d;
+        --accent-red: #c0392b;
+        --table-even: #1e1e1e;
+        --form-bg: #1a1a1a;
+        --shadow-color: rgba(0,0,0,0.4);
+    }
+}
+
+/* --- Stile globale --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--accent-blue);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+p {
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+#sottotitolo {
+    text-align: center;
+}
+
+ul {
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+}
+
+ul li {
+    list-style-position: inside;
+    margin: 5px 0;
+}
+
+/* --- Form --- */
+form {
+    background-color: var(--form-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+form input, form select {
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+form button:hover {
+    background-color: #315f86;
+    transform: translateY(-2px);
+}
+
+/* --- Tabella dei processi --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+    color: var(--text-color);
+}
+
+th {
+    background-color: var(--accent-blue);
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: var(--table-even);
+}
+
+/* --- Output --- */
+#output {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- Diagramma di Gantt --- */
+#gantt {
+    margin-top: 20px;
+}
+
+#gantt div {
+    margin: 4px 0;
+    height: 35px;
+    color: #ffffff;
+    font-weight: bold;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 5px var(--shadow-color);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: default;
+}
+
+/* Hover leggero */
+#gantt div:hover {
+    transform: translateY(-2px);
+    box-shadow: 4px 4px 8px var(--shadow-color);
+}
+
+/* Colori diversi automatici per le prime 10 barre */
+#gantt div:nth-child(1) { background: linear-gradient(90deg, #e74c3c, #f39c12); }
+#gantt div:nth-child(2) { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+#gantt div:nth-child(3) { background: linear-gradient(90deg, #4682b4, #87cefa); }
+#gantt div:nth-child(4) { background: linear-gradient(90deg, #9b59b6, #8e44ad); }
+#gantt div:nth-child(5) { background: linear-gradient(90deg, #f1c40f, #f39c12); }
+#gantt div:nth-child(6) { background: linear-gradient(90deg, #1abc9c, #16a085); }
+#gantt div:nth-child(7) { background: linear-gradient(90deg, #e67e22, #d35400); }
+#gantt div:nth-child(8) { background: linear-gradient(90deg, #34495e, #2c3e50); }
+#gantt div:nth-child(9) { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+#gantt div:nth-child(10){ background: linear-gradient(90deg, #2980b9, #3498db); }
+/* --- Parametri CPU / Risultati --- */
+#cpuParams {
+    background-color: var(--form-bg);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--shadow-color);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+#cpuParams p {
+    font-weight: bold;
+    margin: 8px 0;
+    color: var(--text-color);
+}
+
+/* --- Pulsante reset globale --- */
+#resetBtn {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 25px;
+    background-color: var(--accent-red);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#resetBtn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* --- Pulsante inizio scheduling --- */
+#startBtn {
+    padding: 12px 25px;
+    background-color: var(--accent-green);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+    display: block;
+    margin: 15px auto;
+}
+
+#startBtn:hover {
+    background-color: #1e8449;
+    transform: translateY(-2px);
+}
