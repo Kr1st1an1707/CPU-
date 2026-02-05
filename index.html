@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=devicde-width, initial-scale=1">
+        <title>CPU Scheduler Simulator</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <h1>CPU Scheduling Simulator</h1>
+            <p id="sottotitolo">Simulatore di algoritmi di CPU Scheduling</p>
+        </header>
+
+        <main>
+            <section id="descrizioneAlgoritmo">
+                <h2>Algoritmo di scheduling scelto: FCFS</h2>
+                <h3>Caratteristiche principali</h3>
+                <p>L'algoritmo <strong>First-Come, Firs-Served (FCFS)</strong> esegue i processi nell'ordine in cui arrivano.
+                Non richiede priorità ne preemption</p>
+                <h4>Vantaggi</h4>
+                <ul>
+                    <li>Semplice da implementare</li>
+                    <li>Giusto per tutti i processi: il primo che arriva è il primo che viene eseguito</li>
+                </ul>
+                <h4>Svantaggi</h4>
+                <ul>
+                    <li>Può causare il cosiddetto <em>convoglio dei processi</em> (tempo di attesa lungo se il processo richiede tanto tempo)</li>
+                    <li>Il tempo medio di attesa non è ottimizzato</li>
+                </ul>
+            </section>
+            <section id="inputMain">
+                <h2>Inserisci nuovo processo</h2>
+                <form id="processFormMain">
+                    <label for="pidMain">ID Processo:</label>
+                    <input type="text" id="pidMain" required>
+                    <br>
+
+                    <label for="arrivalMain">Tempo di arrivo:</label>
+                    <input type="number" id="arrivalMain" min="0" required>
+                    <br>
+
+                    <label for="burstMain">Tempo di burst:</label>
+                    <input type="number" id="burstMain" min="1" required>
+
+                    <label for="priorityMain">Priorità:</label>
+                    <input type="number" id="priorityMain" min="1" required>
+
+                    <button type="submit">Aggiungi processo</button>
+                    <button type="reset">Reset form</button>
+                </form>
+                <button id="startBtn">Inizia Scheduling</button>
+                <button id="resetBtn">Cancella tutto</button>
+            </section>
+
+            <section id="output" hidden>
+                <h2>Risultati</h2>
+                
+                <h3>Processi inseriti</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Arrivo</th>
+                            <th>Burst</th>
+                        </tr>
+                    </thead>
+                    <tbody id="processTable"></tbody>
+                </table>
+                
+                <h3>Diagramma di Gantt</h3>
+                <div id="gantt"></div>
+
+                <h3>Parametri del processore</h3>
+                <div id="cpuParams"></div>
+            </section>
+        </main>
+
+        <footer>
+            <h2>Crediti</h2>
+            <p>&copy;TomRiddle901</p>
+            <p>Corso: Tecnologie e Progettazione di Sistemi Informatici e Telecomunicazioni</p>
+            <a href="https://github.com/TomRiddle901">GitHub</a>
+        </footer>
+        <script src="script.js"></script>
+    </body>
+</html>
